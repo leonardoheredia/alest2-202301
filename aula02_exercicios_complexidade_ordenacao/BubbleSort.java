@@ -1,4 +1,6 @@
-package arrays;
+package aula02_exercicios_complexidade_ordenacao;
+
+import arrays.ArrayUtils;
 
 import java.util.Random;
 
