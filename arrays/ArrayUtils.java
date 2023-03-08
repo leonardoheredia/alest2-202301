@@ -4,19 +4,19 @@ import java.util.Random;
 
 public class ArrayUtils {
 
-    public static void imprimir(int[] variavelArray) {
+    public static void imprimir(int[] arrayInteiro) {
         System.out.printf("[");
-        for (int i = 0; i < variavelArray.length ; i++) {
-            System.out.printf(" %d ", variavelArray[i]);
+        for (int i = 0; i < arrayInteiro.length ; i++) {
+            System.out.printf(" %d ", arrayInteiro[i]);
         }
         System.out.printf("]%n");
     }
 
-    public static boolean valorExisteNoArray(int[] variavelArray, int valor) {
+    public static boolean valorExisteNoArray(int[] arrayInteiro, int valor) {
         boolean achou = false;
         int i = 0;
-        while (!achou && i<variavelArray.length) {
-            if(variavelArray[i] == valor) achou=true;
+        while (!achou && i<arrayInteiro.length) {
+            if(arrayInteiro[i] == valor) achou=true;
             i++;
         }
         return achou;
@@ -47,5 +47,12 @@ public class ArrayUtils {
         int dobro = valorInteiro * 2;
         return valorInteiro;
     }
+
+    public static void clonarArray(int[] arrayInteiroOrigem, int[] arrayInteiroDestino) {
+        for (int i = 0; i < arrayInteiroOrigem.length; i++) {
+            arrayInteiroDestino[i] = arrayInteiroOrigem[i];
+        }
+    }
+
 
 }

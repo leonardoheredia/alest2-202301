@@ -8,8 +8,6 @@ public class BubbleSort {
 
     public static void main(String[] args) {
 
-        int[] meuArray1 = {32, 44, 12, 88, 18, 67};
-
         for (int n = 100; n <5000 ; n+=50) {
             int[] array1 = new int[n];
             ArrayUtils.preencherArrayComValoresInteirosAleatorios(array1, 1000, true);
