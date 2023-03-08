@@ -2,7 +2,7 @@ package aula03_analise_algortimos_ordenacao;
 
 import arrays.ArrayUtils;
 
-public class OrdenacaoArray {
+public class AnaliseOrdenacao {
 
     public static void main(String[] args) {
         for (int n = 5; n <= 100; n++) {
