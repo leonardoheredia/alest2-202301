@@ -12,8 +12,10 @@ public class MergeSort {
         return operacoes;
     }
 
+
     public int ordenar(int[] values) {
         operacoes = 0;
+
         this.numbers = values;
         number = values.length;
         this.helper = new int[number];
