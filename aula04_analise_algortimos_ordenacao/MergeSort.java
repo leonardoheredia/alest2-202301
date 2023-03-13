@@ -1,4 +1,4 @@
-package aula03_analise_algortimos_ordenacao;
+package aula04_analise_algortimos_ordenacao;
 
 public class MergeSort {
     private int[] numbers;
