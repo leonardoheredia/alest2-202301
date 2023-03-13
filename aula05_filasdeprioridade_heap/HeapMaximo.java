@@ -1,7 +1,5 @@
 package aula05_filasdeprioridade_heap;
 
-import arrays.ArrayUtils;
-
 /*
 * Estrutura de dados HeapMaximo
 * Implementação para fins didáticos
@@ -31,7 +29,7 @@ public class HeapMaximo {
         //para isso vamos percorrer a arvore a partir do ultimo nodo e "nadarPraCima"
         int posicaoPaiUltimoNodo = this.tamanho / 2;
         for (int i = posicaoPaiUltimoNodo; i > 0; i--) {
-            afundarPraBaixo(i);
+            sinkAfundar(i);
         }
     }
 
@@ -44,7 +42,7 @@ public class HeapMaximo {
         int ultimaPosicaoPreenchida = this.tamanho;
         this.chaves[ultimaPosicaoPreenchida + 1] = chave;
         this.tamanho++;
-        nadarPraCima(this.tamanho);
+        SwimNadar(this.tamanho);
 
     }
     public void removerMaximo() { //remove o maior elemento, a raiz
@@ -66,12 +64,12 @@ public class HeapMaximo {
 
         System.out.println("Removido " + chaveMaxima);
         //inicia o ajuste afundando a nova raiz ate que o heap seja restaurado
-        afundarPraBaixo(1);
+        sinkAfundar(1);
 
     }
 
 
-    private void afundarPraBaixo(int posicao) {
+    private void sinkAfundar(int posicao) {
         int posicaoPai = posicao;
         int posicaoUltimoFilho = 2 * posicaoPai;
         while (posicaoUltimoFilho <= this.tamanho) { //enquanto tiver filho
@@ -102,7 +100,7 @@ public class HeapMaximo {
             }
         }
     }
-    private void nadarPraCima(int posicao) {
+    private void SwimNadar(int posicao) {
         while(posicao > 1) {
             int chave = this.chaves[posicao];
             int chavePai = this.chaves[posicao / 2];
