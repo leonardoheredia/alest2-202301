@@ -1,5 +1,7 @@
 package aula05_filasdeprioridade_heap;
 
+import arrays.ArrayUtils;
+
 /*
 * Estrutura de dados HeapMaximo
 * Implementação para fins didáticos
@@ -27,9 +29,11 @@ public class HeapMaximo {
         //um array qualquer recebido no construtor pode nao ser um heap-maximo
         //nesse caso temos que transformar ele em um heap
         //para isso vamos percorrer a arvore a partir do ultimo nodo e "nadarPraCima"
-        int posicaoPaiUltimoNodo = this.tamanho / 2;
-        for (int i = posicaoPaiUltimoNodo; i > 0; i--) {
-            sinkAfundar(i);
+        //funcao bugada - revisar
+        int ultimaPosicao = this.tamanho;
+        for (int i = ultimaPosicao; i > 0; i--) {
+            ArrayUtils.imprimir(chaves);
+            SwimNadar(i);
         }
     }
 
@@ -68,48 +72,30 @@ public class HeapMaximo {
 
     }
 
-
     private void sinkAfundar(int posicao) {
-        int posicaoPai = posicao;
-        int posicaoUltimoFilho = 2 * posicaoPai;
-        while (posicaoUltimoFilho <= this.tamanho) { //enquanto tiver filho
-            System.out.printf("%n");
-            //troca a chave do pai com a do filho maior
-            int chavePai = this.chaves[posicaoPai];
-            int chaveFilhoEsquerda = this.chaves[posicaoUltimoFilho];
-            int posicaoFilhoNaDireita = posicaoUltimoFilho + 1;
-            int chaveFilhoDireita = 0;
-            if (posicaoFilhoNaDireita <= this.tamanho) { //existe filho na direita
-                chaveFilhoDireita = this.chaves[posicaoFilhoNaDireita];
-            }
-            System.out.printf("%nAnalisa nodo pai %d", chavePai);
-            //troca a o pai com o maior dos filhos e segue o algoritmo
-            if (chaveFilhoEsquerda > chavePai && chaveFilhoEsquerda > chaveFilhoDireita) {
-                System.out.printf("Trocou %d por %d", chavePai, chaveFilhoEsquerda);
-                chaves[posicaoUltimoFilho] = chavePai;
-                chaves[posicaoPai] = chaveFilhoEsquerda;
-                posicaoUltimoFilho = posicaoPai * 2;
-            } else if (chaveFilhoDireita > chavePai && chaveFilhoDireita >= chaveFilhoEsquerda) {
-                chaves[posicaoFilhoNaDireita] = chavePai;
-                chaves[posicaoPai] = chaveFilhoDireita;
-                posicaoUltimoFilho = posicaoPai * 2 + 1;
-                System.out.printf("Trocou %d por %d", chavePai, chaveFilhoDireita);
-            }
-            else {
-                break;
-            }
+        while(2 * posicao <= this.tamanho) {
+            int filho = 2 * posicao; //pega o primeiro filho da posicao
+            if (filho < this.tamanho && chaves[filho] < chaves[filho+1]) filho++;
+            if (chaves[posicao] >= chaves[filho]) break; // pai maior que o maior filho
+            int temp = chaves[posicao];
+            chaves[posicao] = chaves[filho];
+            chaves[filho] = temp;
+            posicao = filho;
         }
     }
+
     private void SwimNadar(int posicao) {
-        while(posicao > 1) {
+        while(posicao > 1 && chaves[posicao/2] < chaves[posicao]) {
             int chave = this.chaves[posicao];
             int chavePai = this.chaves[posicao / 2];
-            if(chave > chavePai) { //filho maior que pai, entao troca as posicoes
-                System.out.printf("   Trocando %d por %d.", chave, chavePai);
-                this.chaves[posicao / 2] = chave;
-                this.chaves[posicao] = chavePai;
-            }
+            System.out.printf("   Trocando %d por %d.", chave, chavePai);
+            this.chaves[posicao] = chavePai;
+            this.chaves[posicao / 2] = chave;
             posicao = posicao / 2; //sobe na arvore
         }
+    }
+
+    public void ordernarHeapSort() {
+        //IMPLEMENTAR
     }
 }
