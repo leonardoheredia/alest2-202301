@@ -45,10 +45,6 @@ public class TabelaHashEnderecamentoAberto {
             int posicao_original = hash;
             int proxima_posicao = hash+1;
             while(true) {
-                if(tabela[proxima_posicao]==chave) {
-                    System.out.println("Valor ja existe!!!");
-                    return;
-                }
                 if(proxima_posicao==this.capacidade) { //chegou no final
                     System.out.printf("%nOps! Cheguei no final %d e não achei nada livre. Vou recomecar desde o início para ver se tenho mais sorte", proxima_posicao);
                     proxima_posicao = 0; //recomeca do zero
@@ -66,7 +62,10 @@ public class TabelaHashEnderecamentoAberto {
                     duplicarTabela();
                     break;
                 }
-
+                if(tabela[proxima_posicao]==chave) {
+                    System.out.println("Valor ja existe!!!");
+                    return;
+                }
             }
 
         }
