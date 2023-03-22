@@ -28,6 +28,11 @@ public class TabelaHashEnderecamentoAberto {
 
     public void inserir(int chave) {
         int hash  = funcaoHashing(chave);
+        if(tabela[hash]==chave) {
+            System.out.println("Valor ja existe!!!");
+            return;
+        }
+
         System.out.printf("%nhash(%d) = %d", chave, hash);
         if(tabela[hash]==-1) { //posicao livre na tabela
             tabela[hash] = chave;
@@ -40,6 +45,10 @@ public class TabelaHashEnderecamentoAberto {
             int posicao_original = hash;
             int proxima_posicao = hash+1;
             while(true) {
+                if(tabela[proxima_posicao]==chave) {
+                    System.out.println("Valor ja existe!!!");
+                    return;
+                }
                 if(proxima_posicao==this.capacidade) { //chegou no final
                     System.out.printf("%nOps! Cheguei no final %d e não achei nada livre. Vou recomecar desde o início para ver se tenho mais sorte", proxima_posicao);
                     proxima_posicao = 0; //recomeca do zero
@@ -51,13 +60,13 @@ public class TabelaHashEnderecamentoAberto {
                     break;
                 }
                 else proxima_posicao++;
-
                 if(proxima_posicao == posicao_original) {
                     System.out.printf("%n Oh não!! Já tentei tudo e não achei lugar! Isso significa que a tabela hash esta lotada! O que farei??? ");
                     System.out.printf("%n Tenho que fazer um resize duplicando o m e colocando novamente todas as chaves");
                     duplicarTabela();
                     break;
                 }
+
             }
 
         }
