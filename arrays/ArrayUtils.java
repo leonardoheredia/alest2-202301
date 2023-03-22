@@ -5,12 +5,34 @@ import java.util.Random;
 public class ArrayUtils {
 
     public static void imprimir(int[] arrayInteiro) {
-        System.out.printf("[");
+        System.out.printf("%n[");
         for (int i = 0; i < arrayInteiro.length ; i++) {
             System.out.printf(" %d ", arrayInteiro[i]);
         }
-        System.out.printf("]%n");
+        System.out.printf("]");
     }
+
+    public static void imprimirArvoreBinaria(int[] arrayInteiros) {
+        //metodo bugado - nao usar
+        imprimir(arrayInteiros);
+        int niveis = arrayInteiros.length / 3;
+        int colunas = (int)Math.pow(niveis, 2);
+        System.out.println("Heap");
+        int nivel = 0;
+        for (int i = 1; i < arrayInteiros.length; i++) {
+            int qtdsep = (colunas / ((nivel+1) ))*2;
+            String sp = " ".repeat(qtdsep);
+            System.out.printf("%s", sp);
+            System.out.printf("%d", arrayInteiros[i]);
+            if (i>nivel*2 || i==1)  {
+                System.out.printf("%n ");
+                nivel = i;
+            }
+        }
+
+    }
+
+
 
     public static boolean valorExisteNoArray(int[] arrayInteiro, int valor) {
         boolean achou = false;
