@@ -9,7 +9,7 @@ public class BubbleSort {
     }
 
     public long getTempoExecucao() {
-        long tempoExecucao = tempoFim - tempoInicio;
+        long tempoExecucao = (tempoFim - tempoInicio) / 1_000_000  ;
         return tempoExecucao;
     }
 
