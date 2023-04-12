@@ -84,8 +84,22 @@ public class QuadtreePontos {
     }
 
     /*Recebe uma coordenada x e y e retorna se a mesma existe na quadtree*/
+
     public boolean existe(int x, int y) {
-        //implementar
+        //(30, 35)
+        Nodo navegador = this.raiz;
+        while(navegador!=null) {
+            //testa se o ponto existe
+            if(x == navegador.ponto.x && y == navegador.ponto.y) return true;
+            //verifica NO
+            if(x<navegador.ponto.x && y>=navegador.ponto.y) navegador = navegador.NO;
+            //verifica SO
+            else if (x<navegador.ponto.x && y<navegador.ponto.y) navegador = navegador.SO;
+            //verifica SE
+            else if (x>=navegador.ponto.x && y<navegador.ponto.y) navegador =navegador.SE;
+            //verifica NE
+            else if (x>=navegador.ponto.x && y>=navegador.ponto.y) navegador = navegador.NE;
+        }
         return false;
     }
     public String imprimirQuadtree() {
@@ -127,6 +141,9 @@ public class QuadtreePontos {
         q.adicionar("D", 80,40);
 
         System.out.println(q);
+
+        System.out.println(q.existe(30,35));
+        System.out.println(q.existe(70,60));
     }
 
 
