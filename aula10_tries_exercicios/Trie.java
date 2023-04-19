@@ -1,5 +1,8 @@
 package aula10_tries_exercicios;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Trie {
     private static final int TAMANHO_ALFABETO = 26;        //apenas letras maiusculas
 
@@ -40,6 +43,23 @@ public class Trie {
 
     public boolean buscar(String chave) {
         //retorna true ou false se a chave existe na TRIE
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < chave.length(); i++) {
+            q.add((int)chave.charAt(i));
+        }
+        Nodo aux = this.raiz;
+        int c = q.peek();
+        for (int i = 0; i < aux.proximo.length; i++) {
+            if(aux.proximo[i]!=null && i==c-65) {
+                c = q.remove();
+                c = q.peek();
+                if(q.isEmpty()) {
+                    System.out.println("ACHOU");
+                    break;
+                }
+                aux = aux.proximo[i];
+            }
+        }
         return false;
     }
 
@@ -49,15 +69,11 @@ public class Trie {
 
     public static void main(String[] args) {
         Trie t = new Trie();
-        t.adicionar("MARIA");
-        t.adicionar("MARIANA");
-        t.adicionar("MONGE");
-        t.adicionar("MONTANA");
-        t.adicionar("MARGARINA");
-        t.adicionar("PESADO");
-        t.adicionar("PESO");
-        t.adicionar("PEDIDO");
+        t.adicionar("JANTA");
+        t.adicionar("JATO");
+        t.adicionar("JATOBA");
         t.imprimir();
+        t.buscar("JATO");
     }
 
 }
