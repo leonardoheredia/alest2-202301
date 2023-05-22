@@ -7,6 +7,10 @@ public class BuscaEmProfundidade {
     public int[] posordem;
     public BuscaEmProfundidade(GrafoValorado g, int verticeOrigem) {
         //implementar
-        //deve mostrar os caminhos em pre-ordem e pos ordem
+    }
+
+    public void imprimirResultado() {
+        //imprimir os arrais de visitados, antecessor, preordem e posordem.
+        //preordem e posordem devem mostrar o caminho percorrido em pre e pos ordem;
     }
 }

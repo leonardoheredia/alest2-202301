@@ -7,7 +7,12 @@ public class BuscaEmLargura {
 
     public BuscaEmLargura(GrafoValorado g, int verticeOrigem) {
         //implementar
-        //deve mostrar o caminho percorrido para achar todos os vertices e as distancias
 
+
+    }
+
+    public void imprimirResultado() {
+        //deve mostrar o caminho percorrido para achar todos os vertices e as distancias
+        //exibir os arrays visitados, antecessor e distancia
     }
 }
