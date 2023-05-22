@@ -3,10 +3,11 @@ package aula24_grafos_valorado;
 public class BuscaEmLargura {
     private boolean[] visitados;
     private int[] antecessor;
-    public int[] preordem;
-    public int[] posordem;
+    private int[] distancia; //considerando 1 para cada aresta percorrida
 
     public BuscaEmLargura(GrafoValorado g, int verticeOrigem) {
         //implementar
+        //deve mostrar o caminho percorrido para achar todos os vertices e as distancias
+
     }
 }

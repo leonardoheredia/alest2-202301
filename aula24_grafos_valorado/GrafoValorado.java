@@ -57,4 +57,21 @@ public class GrafoValorado {
 
         System.out.println(g.toDot());
     }
+
+    public void removerAresta(int v, int w) {
+        //implementar
+    }
+    public int grau(int vertice) {
+        //implementar
+        return 0;
+    }
+
+    public int numeroVertices() {
+        //implementar
+        return 0;
+    }
+    public int numeroArestas() {
+        //implementar
+        return 0;
+    }
 }

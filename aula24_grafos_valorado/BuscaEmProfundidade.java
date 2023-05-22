@@ -7,5 +7,6 @@ public class BuscaEmProfundidade {
     public int[] posordem;
     public BuscaEmProfundidade(GrafoValorado g, int verticeOrigem) {
         //implementar
+        //deve mostrar os caminhos em pre-ordem e pos ordem
     }
 }
