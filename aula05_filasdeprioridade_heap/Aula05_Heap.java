@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Aula05_Heap {
     public static void main(String[] args) {
 
-        //TestarHeap();
-        //exemplo1();
-        //exemplo2();
-        exemplo3();
-        //exemplo4();
+        // TestarHeap();
+        exemplo1();
+        // exemplo2();
+        // exemplo3();
+        // exemplo4();
 
     }
 
@@ -23,11 +23,13 @@ public class Aula05_Heap {
         System.out.println("Digite os valores a serem inseridos (0 para encerrar)");
         do {
             chave = teclado.nextInt();
-            if(chave>0) h1.inserir(chave);
+            if (chave > 0)
+                h1.inserir(chave);
             ArrayUtils.imprimir(h1.getChaves());
-        }while(chave>0);
+        } while (chave > 0);
 
     }
+
     public static void exemplo1() {
         HeapMaximo h1 = new HeapMaximo(10);
 
@@ -51,9 +53,10 @@ public class Aula05_Heap {
     }
 
     public static void exemplo2() {
-        //gerando um heap-max a partir de um array, ou seja, convertendo o array em um heap
+        // gerando um heap-max a partir de um array, ou seja, convertendo o array em um
+        // heap
 
-        int[] meuArray = {0, 20, 35, 12, 77, 90, 15, 100};
+        int[] meuArray = { 0, 20, 35, 12, 77, 90, 15, 100 };
         ArrayUtils.imprimir(meuArray);
         HeapMaximo meuHeap = new HeapMaximo(meuArray);
         ArrayUtils.imprimir(meuHeap.getChaves());
@@ -62,9 +65,10 @@ public class Aula05_Heap {
     }
 
     public static void exemplo3() {
-        //gerando um heap-max a partir de um array, ou seja, convertendo o array em um heap
+        // gerando um heap-max a partir de um array, ou seja, convertendo o array em um
+        // heap
 
-        int[] meuArray = {0, 40, 87, 2, 90, 1, 100, 30, 20};
+        int[] meuArray = { 0, 40, 87, 2, 90, 1, 100, 30, 20 };
         ArrayUtils.imprimir(meuArray);
         HeapMaximo meuHeap = new HeapMaximo(meuArray);
         ArrayUtils.imprimir(meuHeap.getChaves());
@@ -72,9 +76,10 @@ public class Aula05_Heap {
     }
 
     public static void exemplo4() {
-        //gerando um heap-max a partir de um array, ou seja, convertendo o array em um heap
+        // gerando um heap-max a partir de um array, ou seja, convertendo o array em um
+        // heap
 
-        int[] meuArray = {0, 15, 23, 30, 11, 50, 33};
+        int[] meuArray = { 0, 15, 23, 30, 11, 50, 33 };
         ArrayUtils.imprimir(meuArray);
         HeapMaximo meuHeap = new HeapMaximo(meuArray);
         ArrayUtils.imprimir(meuHeap.getChaves());
